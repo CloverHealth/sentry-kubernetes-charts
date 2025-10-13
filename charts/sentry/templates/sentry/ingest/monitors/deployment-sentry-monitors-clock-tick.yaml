@@ -1,3 +1,4 @@
+{{- if has "feature-complete" .Values.profiles }}
 {{- if .Values.sentry.monitorsClockTick.enabled }}
 apiVersion: apps/v1
 kind: Deployment
@@ -8,7 +9,7 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
-    app.kubernetes.io/managed-by: "Helm"
+    {{- include "sentry.component.labels" (dict "component" "monitors-clock-tick" "ctx" .) | nindent 4 }}
   {{- if .Values.asHook }}
   annotations:
     meta.helm.sh/release-name: "{{ .Release.Name }}"
@@ -39,6 +40,7 @@ spec:
         app: {{ template "sentry.fullname" . }}
         release: "{{ .Release.Name }}"
         role: monitors-clock-tick
+        {{- include "sentry.component.labels" (dict "component" "monitors-clock-tick" "ctx" .) | nindent 8 }}
         {{- if .Values.sentry.monitorsClockTick.podLabels }}
 {{ toYaml .Values.sentry.monitorsClockTick.podLabels | indent 8 }}
         {{- end }}
@@ -176,4 +178,5 @@ spec:
       {{- if .Values.sentry.monitorsClockTick.priorityClassName }}
       priorityClassName: "{{ .Values.sentry.monitorsClockTick.priorityClassName }}"
       {{- end }}
+{{- end }}
 {{- end }}
