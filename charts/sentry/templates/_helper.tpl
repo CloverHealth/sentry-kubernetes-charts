@@ -713,8 +713,6 @@ Set external Clickhouse password from existingSecret
   value: {{ include "sentry.kafka.bootstrap_servers_string" . | quote }}
 - name: SENTRY_KAFKA_BROKERS_OCCURRENCES
   value: {{ include "sentry.kafka.bootstrap_servers_string" . | quote }}
-- name: SENTRY_BUCKET_PROFILES
-  value: "file:///var/vroom/sentry-profiles"
 - name: SENTRY_SNUBA_HOST
   value: http://{{ template "sentry.fullname" . }}-snuba:{{ template "snuba.port" . }}
 {{- end -}}
