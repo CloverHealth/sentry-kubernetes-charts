@@ -78,6 +78,10 @@ spec:
           - "--web.listen-address=:9102"
         image: "{{ .Values.metrics.image.repository }}:{{ .Values.metrics.image.tag }}"
         imagePullPolicy: {{ .Values.metrics.image.pullPolicy }}
+        {{- if .Values.metrics.env }}
+        env:
+{{ toYaml .Values.metrics.env | indent 10 }}
+        {{- end }}
         ports:
         - name: statsd
           containerPort: 9125

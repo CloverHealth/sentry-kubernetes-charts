@@ -3059,6 +3059,9 @@ metrics:
   volumes: []
   sidecars: []
 
+  # Extra environment variables, e.g. for GOMEMLIMIT
+  env: []
+
   # schedulerName:
   # Optional extra labels for pod, i.e. redis-client: "true"
   # podLabels: {}
