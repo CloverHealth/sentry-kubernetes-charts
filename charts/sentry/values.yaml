@@ -2059,9 +2059,9 @@ snuba:
         - ".*_raw_local$"
       # -- Exclude patterns for table names (regex patterns)
       excludePatterns:
-        - "^system\."
-        - "^information_schema\."
-        - "^INFORMATION_SCHEMA\."
+        - "^system\\."
+        - "^information_schema\\."
+        - "^INFORMATION_SCHEMA\\."
       # -- Fallback hardcoded table list (used if autoDetect fails or is disabled)
       fallbackList:
         - "discover_local"
@@ -2270,9 +2270,7 @@ github: {}
 #   appName: MyAppName
 #   clientId: "xxxxx"
 #   clientSecret: "xxxxx"
-#   privateKey: "-----BEGIN RSA PRIVATE KEY-----
-MIIEpA" !!!! Don't forget a trailing 
-
+#   privateKey: "-----BEGIN RSA PRIVATE KEY-----\nMIIEpA" !!!! Don't forget a trailing \n
 #   webhookSecret:  "xxxxx"
 #
 #   Note: if you use `existingSecret`, all above `clientId`, `clientSecret`, `privateKey`, `webhookSecret`
