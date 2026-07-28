@@ -2059,9 +2059,9 @@ snuba:
         - ".*_raw_local$"
       # -- Exclude patterns for table names (regex patterns)
       excludePatterns:
-        - "^system\\."
-        - "^information_schema\\."
-        - "^INFORMATION_SCHEMA\\."
+        - "^system\."
+        - "^information_schema\."
+        - "^INFORMATION_SCHEMA\."
       # -- Fallback hardcoded table list (used if autoDetect fails or is disabled)
       fallbackList:
         - "discover_local"
@@ -2270,7 +2270,9 @@ github: {}
 #   appName: MyAppName
 #   clientId: "xxxxx"
 #   clientSecret: "xxxxx"
-#   privateKey: "-----BEGIN RSA PRIVATE KEY-----\nMIIEpA" !!!! Don't forget a trailing \n
+#   privateKey: "-----BEGIN RSA PRIVATE KEY-----
+MIIEpA" !!!! Don't forget a trailing 
+
 #   webhookSecret:  "xxxxx"
 #
 #   Note: if you use `existingSecret`, all above `clientId`, `clientSecret`, `privateKey`, `webhookSecret`
@@ -3061,6 +3063,7 @@ metrics:
 
   # Extra environment variables, e.g. for GOMEMLIMIT
   env: []
+  extraArgs: []
 
   # schedulerName:
   # Optional extra labels for pod, i.e. redis-client: "true"
