@@ -76,6 +76,9 @@ spec:
         args:
           - "--statsd.listen-udp=:9125"
           - "--web.listen-address=:9102"
+{{- range .Values.metrics.extraArgs }}
+          - {{ . | quote }}
+{{- end }}
         image: "{{ .Values.metrics.image.repository }}:{{ .Values.metrics.image.tag }}"
         imagePullPolicy: {{ .Values.metrics.image.pullPolicy }}
         {{- if .Values.metrics.env }}

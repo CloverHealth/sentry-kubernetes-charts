@@ -3061,6 +3061,7 @@ metrics:
 
   # Extra environment variables, e.g. for GOMEMLIMIT
   env: []
+  extraArgs: []
 
   # schedulerName:
   # Optional extra labels for pod, i.e. redis-client: "true"
